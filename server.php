@@ -17,14 +17,9 @@ $config = json_decode(file_get_contents(__DIR__ . '/giply_config.json'), true);
 $action = $project = $hash = null;
 list($action, $project, $hash) = explode('/', substr($_SERVER['REQUEST_URI'], 1));
 
-if (!in_array($action, array('pull', 'self-update'))) {
+if (!in_array($action, array('pull'))) {
     header("400 Invalid action", true, 400);
     exit('Missing action');
-}
-
-if ($action == 'self-update') {
-    include __DIR__ . '/self-update.php';
-    exit ('OK');
 }
 
 require_once __DIR__ . '/vendor/autoload.php';

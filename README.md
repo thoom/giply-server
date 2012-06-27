@@ -11,7 +11,7 @@ There are some assumptions with the Giply-server:
  1. The server expects to be located in a the same parent ($parentDir) as the projects it manages (for instance, inside of __/var/www__).
  2. The server web root should be the included _web_ directory.
  3. The server expects pretty URLs, in the format: __action/projectName/securityHash__.
-    * The only actions supported at the moment are _pull_ or _self-update_.
+    * The only actions supported at the moment are _pull_.
     * _projectName_ is the name of the working directory (in your /var/www folder).
     * _securityHash_ is a simple md5 hash of the string _$parentDir/projectName_. Other hashes may be supported in future
       revisions, and it is really only there to add a little bit of simple security.
@@ -39,6 +39,10 @@ I'm not including an .htaccess file in the web directory.
 
  2. Run the install script using __php self-update.php__. Make sure that the user running this file has permission to write to
     this directory. When this process is done, you should have a new file call *giply_config.json*.
- 3. Now, anytime you want to update, you can either run the same command again, or you can just use the self-update action:
+ 3. Now, anytime you want to update, just run the same command again.
 
-        http://deploy.myserver.com/self-update
+TODOs
+-----
+
+ 1. Running self-update.php can cause errors when you run it since it's part of the git update. Need to figure out a better
+    way to handle it. At the moment I usually just do a git pull origin master, then run it again.
