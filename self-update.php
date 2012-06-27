@@ -10,7 +10,7 @@
  * @since 6/26/12 7:24 PM
  */
 
-$parent_dir = dir(__DIR__);
+$parent_dir = dirname(__DIR__);
 $composer = __DIR__ . '/composer.phar';
 $lock = __DIR__ . '/composer.lock';
 $config = __DIR__ . '/giply_config.json';
