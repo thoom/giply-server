@@ -39,10 +39,7 @@ I'm not including an .htaccess file in the web directory.
 
  2. Run the install script using __php self-update.php__. Make sure that the user running this file has permission to write to
     this directory. When this process is done, you should have a new file call *giply_config.json*.
- 3. Now, anytime you want to update, just run the same command again.
+ 3. Now, anytime you want to update to the latest version, just run:
 
-TODOs
------
-
- 1. Running self-update.php can cause errors when you run it since it's part of the git update. Need to figure out a better
-    way to handle it. At the moment I usually just do a git pull origin master, then run it again.
+        git pull origin master
+        php self-update.php

@@ -19,8 +19,8 @@ while (!file_exists($composer)) {
     file_put_contents($composer, file_get_contents("http://getcomposer.org/installer"));
 }
 
-exec("git reset --hard HEAD");
-exec("git pull origin master");
+//exec("git reset --hard HEAD");
+//exec("git pull origin master");
 
 if (!file_exists($lock))
     exec("php $composer install");
