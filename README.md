@@ -41,5 +41,4 @@ I'm not including an .htaccess file in the web directory.
     this directory. When this process is done, you should have a new file call *giply_config.json*.
  3. Now, anytime you want to update to the latest version, just run:
 
-        git pull origin master
         php self-update.php
