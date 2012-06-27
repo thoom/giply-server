@@ -34,7 +34,7 @@ if (file_exists($config)) {
 
 $to_config = array_merge(array('parent_dir' => $parent_dir), $json);
 
-file_put_contents($config, json_encode($json));
+file_put_contents($config, json_encode($to_config));
 chmod($config, 0666);
 
 
