@@ -12,8 +12,6 @@ if (!file_exists(__DIR__ . '/giply_config.json')) {
     exit("Configuration file missing");
 }
 
-$config = json_decode(file_get_contents(__DIR__ . '/giply_config.json'), true);
-
 $action = $project = $hash = null;
 list($action, $project, $hash) = explode('/', substr($_SERVER['REQUEST_URI'], 1));
 
@@ -22,7 +20,6 @@ if (!in_array($action, array('pull'))) {
     exit('Missing action');
 }
 
-require_once __DIR__ . '/vendor/autoload.php';
 if (!$project) {
     header("400 Missing project", true, 400);
     exit('Missing project to pull');
@@ -38,6 +35,7 @@ if (!isset($_POST['payload'])) {
     exit("Missing POST payload");
 }
 
+$config = json_decode(file_get_contents(__DIR__ . '/giply_config.json'), true);
 $project_dir = $config['parent_dir'] . "/$project";
 if ($hash != md5($project_dir)) {
     header("400 Invalid hash", true, 400);
@@ -74,6 +72,8 @@ register_shutdown_function(function() use ($lock)
 
 file_put_contents($lock, md5($_POST['payload']));
 file_put_contents("$project_dir/giply_payload.json", $_POST['payload']);
+
+require_once __DIR__ . '/vendor/autoload.php';
 
 $deploy = new Thoom\Giply($project_dir);
 $deploy->log("Payload: " . $_POST['payload'], Thoom\Giply::LOG_DEBUG);
