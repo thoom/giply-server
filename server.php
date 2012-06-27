@@ -14,8 +14,6 @@ if (!file_exists(__DIR__ . '/giply_config.json')) {
 
 $config = json_decode(file_get_contents(__DIR__ . '/giply_config.json'), true);
 
-require_once __DIR__ . '/vendor/autoload.php';
-
 $action = $project = $hash = null;
 list($action, $project, $hash) = explode('/', substr($_SERVER['REQUEST_URI'], 1));
 
@@ -29,6 +27,7 @@ if ($action == 'self-update') {
     exit ('OK');
 }
 
+require_once __DIR__ . '/vendor/autoload.php';
 if (!$project) {
     header("400 Missing project", true, 400);
     exit('Missing project to pull');
