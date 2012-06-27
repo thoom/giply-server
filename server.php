@@ -14,7 +14,7 @@ if (!file_exists(__DIR__ . '/giply_config.json')) {
 
 $config = json_decode(file_get_contents(__DIR__ . '/giply_config.json'), true);
 
-require_once __DIR__ . '/../vendor/autoload.php';
+require_once __DIR__ . '/vendor/autoload.php';
 
 $action = $project = $hash = null;
 list($action, $project, $hash) = explode('/', substr($_SERVER['REQUEST_URI'], 1));
