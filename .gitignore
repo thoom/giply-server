@@ -1,0 +1,5 @@
+.idea
+web/.htaccess
+composer.phar
+composer.lock
+vendor
