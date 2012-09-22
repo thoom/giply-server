@@ -22,10 +22,9 @@ while (!file_exists($composer)) {
 exec("git reset --hard HEAD");
 exec("git pull origin master");
 
-if (!file_exists($lock))
-    exec("php $composer install");
-else
-    exec("php $composer update");
+exec("rm -rf vendor");
+exec("rm -rf composer.lock");
+exec("php $composer install");
 
 $json = array();
 if (file_exists($config)) {
