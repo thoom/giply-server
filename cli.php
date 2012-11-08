@@ -10,11 +10,11 @@ if (!is_dir($project_dir)) {
 }
 
 if (!is_dir($project_dir)) {
-    exit("Invalid project directory");
+    exit("Invalid project directory\n");
 }
 
 if (!is_dir($project_dir . "/.git")) {
-    exit("Missing required Git repository");
+    exit("Missing required Git repository\n");
 }
 
 $deploy = new Thoom\Giply($project_dir);
