@@ -1,0 +1,54 @@
+{
+    "hash": "d8ba3261af251560eb981454295aff88",
+    "packages": [
+        {
+            "name": "thoom/giply",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thoom/Giply",
+                "reference": "939e9e142a82867badc4be4d952e2e588f1ab84f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/thoom/Giply/archive/939e9e142a82867badc4be4d952e2e588f1ab84f.zip",
+                "reference": "939e9e142a82867badc4be4d952e2e588f1ab84f",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "time": "1352394441",
+            "type": "library",
+            "installation-source": "source",
+            "autoload": {
+                "psr-0": {
+                    "Thoom": "lib/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Z.d. Peacock",
+                    "email": "zdp@thoomtech.com"
+                }
+            ],
+            "description": "PHP git-based deployment",
+            "homepage": "https://github.com/thoom/Giply",
+            "keywords": [
+                "git",
+                "deployment"
+            ]
+        }
+    ],
+    "packages-dev": null,
+    "aliases": [
+
+    ],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "thoom/giply": 20
+    }
+}

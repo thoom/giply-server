@@ -19,12 +19,11 @@ while (!file_exists($composer)) {
     file_put_contents($composer, file_get_contents("http://getcomposer.org/installer"));
 }
 
-exec("git reset --hard HEAD");
-exec("git pull origin master");
+passthru("git reset --hard HEAD");
+passthru("git pull origin master");
 
-exec("rm -rf vendor");
-exec("rm -rf composer.lock");
-exec("php $composer install");
+passthru("rm -rf vendor");
+passthru("php $composer install");
 
 $json = array();
 if (file_exists($config)) {
