@@ -22,8 +22,7 @@ while (!file_exists($composer)) {
 passthru("git reset --hard HEAD");
 passthru("git pull origin master");
 
-passthru("rm -rf vendor");
-passthru("php $composer install");
+passthru("php $composer install --prefer-dist -o");
 
 $json = array();
 if (file_exists($config)) {
