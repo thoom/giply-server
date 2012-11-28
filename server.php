@@ -37,7 +37,9 @@ if (!isset($_POST['payload'])) {
 
 $config = json_decode(file_get_contents(__DIR__ . '/giply_config.json'), true);
 $project_dir = $config['parent_dir'] . "/$project";
-if ($hash != md5($project_dir)) {
+
+$vhash = (isset($config['hash']) && isset($config['hash'][$project])) ? $config['hash'][$project] : md5($project_dir);
+if ($hash != $vhash) {
     header("400 Invalid hash", true, 400);
     exit('Invalid security hash');
 }
@@ -53,8 +55,9 @@ set_time_limit(120);
 $timeout = 60;
 $i = 0;
 while (file_exists($lock)) {
-    if (md5($_POST['payload']) == file_get_contents($lock))
+    if (md5($_POST['payload']) == file_get_contents($lock)) {
         exit();
+    }
 
     sleep(2);
     $i += 2;
@@ -65,10 +68,11 @@ while (file_exists($lock)) {
     }
 }
 
-register_shutdown_function(function() use ($lock)
-{
-    unlink($lock);
-});
+register_shutdown_function(
+    function () use ($lock) {
+        unlink($lock);
+    }
+);
 
 file_put_contents($lock, md5($_POST['payload']));
 file_put_contents("$project_dir/giply_payload.json", $_POST['payload']);
