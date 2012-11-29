@@ -8,7 +8,7 @@ server.
 There are some assumptions with the Giply-server:
 
  1. The server expects to be located in a the same parent ($parentDir) as the projects it manages (for instance, inside of `/var/www`).
- 2. The server web root should be the included `web`_ directory.
+ 2. The server web root should be the included `web` directory.
  3. The server expects pretty URLs, in the format: `action/projectName/securityHash`.
     * The only actions supported at the moment are _pull_.
     * _projectName_ is the name of the working directory (in your /var/www folder).
