@@ -3,7 +3,7 @@
     "description":"PHP git-based deployment server",
     "type":"library",
     "keywords":["git", "deployment"],
-    "homepage":"https://github.com/thoom/Giply-server",
+    "homepage":"https://github.com/thoom/giply-server",
     "license":"MIT",
     "require":{
         "php":">=5.3.2",

@@ -32,7 +32,7 @@ There are some assumptions with the Giply-server:
         sudo su www-data
         cd /var/www/mysite
         git init
-        git remote add origin git@bitbucket.org:myacct/myacct.git
+        git remote add origin git@bitbucket.org:myacct/myrepo.git
         git pull origin master
 
     If you get an error pulling the origin, it probably means that the SSH key is missing or not approved to access the repo.
@@ -48,7 +48,7 @@ I'm not including an .htaccess file in the web directory.
  1. To install, first just check out the code to the directory of your choice. I use something like */var/www/deploy*.
 
         git init
-        git remote add origin git://github.com/thoom/Giply-server.git
+        git remote add origin git://github.com/thoom/giply-server.git
         git pull origin master
 
  2. Run the install script using __php self-update.php__. Make sure that the user running this file has permission to write to
